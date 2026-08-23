@@ -688,6 +688,7 @@ a {
 }
 
 .flow-item:hover,
+.flow-item:focus,
 .flow-item:focus-visible {
   z-index: 20;
   background: rgba(255, 255, 255, 0.5);
@@ -793,6 +794,7 @@ a {
 }
 
 .flow-item:hover .flow-preview,
+.flow-item:focus .flow-preview,
 .flow-item:focus-visible .flow-preview {
   visibility: visible;
   opacity: 1;
@@ -800,6 +802,7 @@ a {
 }
 
 .flow-item:hover .flow-chips,
+.flow-item:focus .flow-chips,
 .flow-item:focus-visible .flow-chips {
   opacity: 0;
 }
@@ -1417,13 +1420,31 @@ a {
     --shell: calc(100% - 32px);
   }
 
+  html,
   body {
+    overflow-x: clip;
     word-break: normal;
   }
 
   .site-header,
   .site-header.scrolled {
     height: 64px;
+  }
+
+  body.menu-open .site-header,
+  body.menu-open .site-header.scrolled {
+    height: 100dvh;
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+
+  body.menu-open .nav-shell {
+    height: 64px;
+  }
+
+  body.menu-open .brand {
+    position: relative;
+    z-index: 2;
   }
 
   .brand {
@@ -1470,6 +1491,7 @@ a {
 
   .site-nav {
     position: fixed;
+    z-index: 1;
     inset: 0;
     display: flex;
     flex-direction: column;
@@ -1502,7 +1524,7 @@ a {
   }
 
   .hero {
-    padding: 120px 0 70px;
+    padding: 108px 0 70px;
   }
 
   .hero h1 {
@@ -1537,7 +1559,8 @@ a {
 
   .impact-grid article,
   .impact-grid article:nth-child(3) {
-    min-height: 112px;
+    min-height: 104px;
+    padding: 22px 24px;
     border-right: 1px solid rgba(255, 255, 255, 0.14);
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     border-left: 1px solid rgba(255, 255, 255, 0.14);
@@ -1548,7 +1571,7 @@ a {
   }
 
   .section {
-    padding: 88px 0;
+    padding: 80px 0;
   }
 
   .section-heading h2,
@@ -1564,13 +1587,26 @@ a {
   }
 
   .problem-card {
-    min-height: 310px;
+    min-height: 260px;
+    padding: 28px;
+  }
+
+  .problem-card .line-icon {
+    margin-top: 24px;
+  }
+
+  .problem-card h3 {
+    margin-top: 20px;
+  }
+
+  .flow-list {
+    margin-top: 50px;
   }
 
   .flow-item {
-    grid-template-columns: 55px 1fr;
-    gap: 12px;
-    padding: 28px 0;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 10px;
+    padding: 24px 0;
   }
 
   .flow-content h3 {
@@ -1583,12 +1619,58 @@ a {
 
   .flow-chips {
     grid-column: 2;
+    grid-row: 2;
+    flex-wrap: wrap;
     padding: 0;
   }
 
   .flow-preview {
-    width: calc(100% - 67px);
+    position: relative;
+    top: auto;
+    right: auto;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+    max-height: 0;
+    padding: 0 8px;
+    margin: 0;
+    overflow: hidden;
+    border-width: 0;
+    border-color: transparent;
+    border-radius: 16px;
+    box-shadow: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease,
+      margin 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .flow-preview::before {
+    top: -9px;
+    left: 28px;
+    transform: rotate(135deg);
+  }
+
+  .flow-preview img {
+    max-height: none;
+  }
+
+  .flow-item:hover .flow-preview,
+  .flow-item:focus .flow-preview,
+  .flow-item:focus-visible .flow-preview {
+    max-height: 720px;
     padding: 8px;
+    margin-top: 14px;
+    overflow: visible;
+    border-width: 1px;
+    border-color: rgba(15, 86, 179, 0.16);
+    box-shadow: 0 18px 42px rgba(8, 38, 82, 0.18);
+    transform: translateY(0) scale(1);
   }
 
   .technology-flow {
@@ -1606,32 +1688,44 @@ a {
   }
 
   .accessibility-visual {
-    min-height: 360px;
-    padding: 24px;
+    min-height: 340px;
+    padding: 24px 18px;
+    overflow: hidden;
   }
 
   .language-card {
-    width: 90%;
-    transform: rotate(-2deg) translateY(-35px);
+    width: min(90%, 290px);
+    transform: rotate(-2deg) translateY(-38px);
   }
 
   .accessibility-toggle {
-    right: 5%;
-    bottom: 55px;
-    width: 90%;
+    right: 16px;
+    bottom: 42px;
+    gap: 8px;
+    width: calc(100% - 32px);
+    padding: 12px;
+  }
+
+  .aa {
+    width: 42px;
+    height: 42px;
+  }
+
+  .toggle {
+    width: 34px;
   }
 
   .architecture-card {
+    margin-top: 44px;
     padding: 8px;
+    overflow: hidden;
     border-radius: 12px;
   }
 
   .architecture-card img {
-    min-width: 760px;
-  }
-
-  .architecture-card {
-    overflow-x: auto;
+    width: 100%;
+    min-width: 0;
+    height: auto;
   }
 
   .tech-stack {
@@ -1653,11 +1747,12 @@ a {
   }
 
   .safety-grid article {
-    min-height: 240px;
+    min-height: 210px;
+    padding: 30px;
   }
 
   .safety-grid h3 {
-    margin-top: 52px;
+    margin-top: 42px;
   }
 
   .cta-section {
@@ -1665,7 +1760,7 @@ a {
   }
 
   .cta-inner h2 {
-    font-size: 39px;
+    font-size: 36px;
   }
 
   .footer-grid {
@@ -1674,6 +1769,56 @@ a {
 
   .footer-links {
     flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --shell: calc(100% - 24px);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .section-heading h2,
+  .product-copy h2,
+  .accessibility-copy h2,
+  .safety-intro h2 {
+    font-size: 32px;
+  }
+
+  .eyebrow {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.11em;
+  }
+
+  .flow-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .technology-flow {
+    gap: 3px;
+    font-size: 12px;
+  }
+
+  .technology-flow strong {
+    padding: 5px 7px;
+    font-size: 14px;
+  }
+
+  .accessibility-toggle small {
+    font-size: 9px;
+  }
+
+  .cta-inner h2 {
+    font-size: 32px;
   }
 }
 

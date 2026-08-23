@@ -1,6 +1,7 @@
 const header = document.querySelector("[data-header]");
 const progress = document.querySelector(".scroll-progress span");
 const menuButton = document.querySelector("[data-menu-button]");
+const menuButtonLabel = menuButton?.querySelector(".sr-only");
 const menu = document.querySelector("[data-menu]");
 const year = document.querySelector("[data-year]");
 
@@ -13,17 +14,18 @@ const updateScrollUi = () => {
   if (progress) progress.style.width = `${percentage}%`;
 };
 
-const closeMenu = () => {
-  menuButton?.setAttribute("aria-expanded", "false");
-  menu?.classList.remove("open");
-  document.body.classList.remove("menu-open");
+const setMenuOpen = (isOpen) => {
+  menuButton?.setAttribute("aria-expanded", String(isOpen));
+  menu?.classList.toggle("open", isOpen);
+  document.body.classList.toggle("menu-open", isOpen);
+  if (menuButtonLabel) menuButtonLabel.textContent = isOpen ? "메뉴 닫기" : "메뉴 열기";
 };
+
+const closeMenu = () => setMenuOpen(false);
 
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menu?.classList.toggle("open", !isOpen);
-  document.body.classList.toggle("menu-open", !isOpen);
+  setMenuOpen(!isOpen);
 });
 
 menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
