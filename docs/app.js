@@ -4,6 +4,8 @@ const menuButton = document.querySelector("[data-menu-button]");
 const menuButtonLabel = menuButton?.querySelector(".sr-only");
 const menu = document.querySelector("[data-menu]");
 const year = document.querySelector("[data-year]");
+const mobileFlowViewport = window.matchMedia("(max-width: 700px)");
+const flowItems = [...document.querySelectorAll(".flow-item")];
 
 const updateScrollUi = () => {
   const scrollTop = window.scrollY;
@@ -29,6 +31,42 @@ menuButton?.addEventListener("click", () => {
 });
 
 menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+const setFlowPreviewOpen = (item, isOpen) => {
+  item.classList.toggle("is-preview-open", isOpen);
+  item.setAttribute("aria-expanded", String(isOpen));
+  item.querySelector(".flow-preview")?.setAttribute("aria-hidden", String(!isOpen));
+};
+
+const closeFlowPreviews = (exceptItem) => {
+  flowItems.forEach((item) => {
+    if (item !== exceptItem) setFlowPreviewOpen(item, false);
+  });
+};
+
+flowItems.forEach((item) => {
+  setFlowPreviewOpen(item, false);
+
+  item.addEventListener("click", () => {
+    if (!mobileFlowViewport.matches) return;
+
+    const shouldOpen = !item.classList.contains("is-preview-open");
+    closeFlowPreviews(item);
+    setFlowPreviewOpen(item, shouldOpen);
+  });
+
+  item.addEventListener("keydown", (event) => {
+    if (!mobileFlowViewport.matches || !["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    item.click();
+  });
+});
+
+const syncFlowPreviewMode = () => {
+  if (!mobileFlowViewport.matches) closeFlowPreviews();
+};
+
+mobileFlowViewport.addEventListener?.("change", syncFlowPreviewMode);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
@@ -58,6 +96,7 @@ if (year) year.textContent = new Date().getFullYear();
 window.addEventListener("scroll", updateScrollUi, { passive: true });
 window.addEventListener("resize", () => {
   if (window.innerWidth > 700) closeMenu();
+  syncFlowPreviewMode();
   updateScrollUi();
 });
 updateScrollUi();
