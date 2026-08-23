@@ -748,7 +748,7 @@ a {
   z-index: 2;
   top: 50%;
   right: 0;
-  width: min(360px, calc(100% - 120px));
+  width: min(460px, calc(100% - 120px));
   height: auto;
   padding: 10px;
   margin: 0;
@@ -787,7 +787,7 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  max-height: min(70vh, 560px);
+  max-height: min(76vh, 680px);
   object-fit: contain;
   border-radius: 11px;
 }
@@ -1382,7 +1382,7 @@ a {
   }
 
   .flow-preview {
-    width: min(360px, calc(100% - 92px));
+    width: min(420px, calc(100% - 92px));
   }
 
   .product-grid,
