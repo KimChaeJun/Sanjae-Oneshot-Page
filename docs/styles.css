@@ -293,7 +293,7 @@ a {
 
 .hero h1 {
   max-width: 650px;
-  font-size: clamp(46px, 5.2vw, 72px);
+  font-size: clamp(42px, 4.7vw, 64px);
 }
 
 .hero h1 em {
@@ -520,7 +520,7 @@ a {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .impact-grid article {
@@ -533,6 +533,10 @@ a {
 }
 
 .impact-grid article:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.impact-grid article:nth-child(3) {
   border-left: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -1528,7 +1532,7 @@ a {
   }
 
   .hero h1 {
-    font-size: clamp(40px, 12vw, 54px);
+    font-size: clamp(36px, 10.5vw, 48px);
   }
 
   .hero-description {
@@ -1554,20 +1558,29 @@ a {
   }
 
   .impact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .impact-grid article,
   .impact-grid article:nth-child(3) {
-    min-height: 104px;
-    padding: 22px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 138px;
+    padding: 20px;
     border-right: 1px solid rgba(255, 255, 255, 0.14);
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     border-left: 1px solid rgba(255, 255, 255, 0.14);
   }
 
   .impact-grid strong {
-    min-width: 52px;
+    min-width: 0;
+    font-size: 42px;
+  }
+
+  .impact-grid span {
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   .section {
@@ -1779,7 +1792,7 @@ a {
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   .hero-description {
