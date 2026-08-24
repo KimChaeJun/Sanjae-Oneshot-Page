@@ -1712,7 +1712,7 @@ p {
   .product-copy h2,
   .accessibility-copy h2,
   .safety-intro h2 {
-    font-size: clamp(30px, 8vw, 36px);
+    font-size: clamp(27px, 7.5vw, 36px);
   }
 
   .split-heading > p,
@@ -1731,6 +1731,24 @@ p {
   .safety-grid article {
     min-width: 0;
     overflow-wrap: break-word;
+  }
+
+  .section-heading h2,
+  .product-copy h2,
+  .accessibility-copy h2,
+  .safety-intro h2,
+  .cta-inner h2 {
+    overflow-wrap: normal;
+    word-break: keep-all;
+    text-wrap: balance;
+  }
+
+  .problem-section .section-heading h2 {
+    text-wrap: pretty;
+  }
+
+  h2 br {
+    display: none;
   }
 
   .problem-grid,
@@ -1935,7 +1953,7 @@ p {
   }
 
   .cta-inner h2 {
-    font-size: clamp(30px, 8vw, 36px);
+    font-size: clamp(27px, 7.5vw, 36px);
   }
 
   .footer-grid {
