@@ -1558,7 +1558,7 @@ p {
   html,
   body {
     overflow-x: clip;
-    word-break: normal;
+    word-break: keep-all;
   }
 
   .site-header,
@@ -1684,6 +1684,12 @@ p {
     justify-content: center;
   }
 
+  .check-list li,
+  .accessibility-points {
+    justify-content: center;
+    text-align: center;
+  }
+
   .hero-actions,
   .button {
     width: 100%;
@@ -1737,8 +1743,8 @@ p {
   .impact-grid span {
     font-size: var(--type-caption);
     line-height: 1.5;
-    overflow-wrap: anywhere;
-    word-break: normal;
+    overflow-wrap: normal;
+    word-break: keep-all;
   }
 
   .section {
@@ -1770,7 +1776,7 @@ p {
   .problem-card,
   .safety-grid article {
     min-width: 0;
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
   }
 
   .section-heading h2,
