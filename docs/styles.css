@@ -25,6 +25,15 @@
   --paper: var(--surface);
   --shadow: 0 26px 80px rgba(30, 58, 96, 0.16);
   --shell: min(1180px, calc(100vw - 48px));
+  --type-micro: clamp(9px, calc(8.2px + 0.25vw), 10px);
+  --type-caption: clamp(10px, calc(8.9px + 0.35vw), 12px);
+  --type-small: clamp(12px, calc(10.9px + 0.35vw), 14px);
+  --type-body: clamp(14px, calc(12.9px + 0.35vw), 16px);
+  --type-copy: clamp(14px, calc(12.4px + 0.5vw), 17px);
+  --type-body-lg: clamp(15px, calc(13.2px + 0.55vw), 18px);
+  --type-subtitle: clamp(18px, calc(15.6px + 0.75vw), 22px);
+  --type-step-title: clamp(20px, calc(17.6px + 0.75vw), 24px);
+  --type-number: clamp(34px, calc(27px + 2.2vw), 48px);
 }
 
 * {
@@ -1295,6 +1304,109 @@ a {
   text-transform: uppercase;
 }
 
+/* 화면 폭에 따라 본문부터 보조 라벨까지 같은 비율로 조절합니다. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.brand {
+  font-size: clamp(18px, calc(16.2px + 0.55vw), 21px);
+}
+
+.site-nav,
+.check-list li,
+.tech-stack b,
+.safety-grid p {
+  font-size: var(--type-small);
+}
+
+.button,
+.problem-card p,
+.flow-content > p:last-child,
+.product-copy > p:not(.eyebrow) {
+  font-size: var(--type-body);
+}
+
+.hero-description {
+  font-size: var(--type-body-lg);
+}
+
+.split-heading > p,
+.centered > p:last-child,
+.accessibility-copy > p:not(.eyebrow),
+.technology-flow {
+  font-size: var(--type-copy);
+}
+
+.eyebrow,
+.hero-tags li,
+.impact-grid span,
+.card-index,
+.flow-chips span,
+.language-card span,
+.accessibility-points span,
+.legal-note,
+.cta-inner > p,
+.footer-links {
+  font-size: var(--type-caption);
+}
+
+.browser-address,
+.note-ready strong,
+.note-language span,
+.flow-label,
+.product-window-bar,
+.accessibility-toggle small,
+.tech-stack span,
+.footer-grid > div:first-child > p,
+.copyright {
+  font-size: var(--type-micro);
+}
+
+.note-ready b,
+.problem-card h3,
+.safety-grid h3 {
+  font-size: var(--type-subtitle);
+}
+
+.flow-content h3 {
+  font-size: var(--type-step-title);
+}
+
+.line-icon {
+  font-size: clamp(22px, calc(20.2px + 0.55vw), 25px);
+}
+
+.impact-grid strong {
+  font-size: var(--type-number);
+}
+
+.flow-number {
+  font-size: clamp(28px, calc(23px + 1.55vw), 38px);
+}
+
+.accessibility-toggle strong {
+  font-size: clamp(11px, calc(10.4px + 0.2vw), 13px);
+}
+
+.technology-flow strong {
+  font-size: var(--type-body-lg);
+}
+
+.safety-grid article > span {
+  font-size: clamp(15px, calc(13px + 0.6vw), 18px);
+}
+
+.footer-brand {
+  font-size: clamp(17px, calc(15.8px + 0.4vw), 19px);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -1452,7 +1564,7 @@ a {
   }
 
   .brand {
-    font-size: 18px;
+    font-size: clamp(17px, 4.6vw, 18px);
   }
 
   .brand img {
@@ -1518,7 +1630,7 @@ a {
 
   .site-nav > a:not(.nav-cta) {
     display: block;
-    font-size: 30px;
+    font-size: clamp(24px, 7.6vw, 30px);
     font-weight: 800;
     letter-spacing: -0.04em;
   }
@@ -1582,11 +1694,11 @@ a {
 
   .impact-grid strong {
     min-width: 0;
-    font-size: 42px;
+    font-size: clamp(34px, 10vw, 42px);
   }
 
   .impact-grid span {
-    font-size: 12px;
+    font-size: var(--type-caption);
     line-height: 1.5;
     overflow-wrap: anywhere;
     word-break: normal;
@@ -1657,7 +1769,7 @@ a {
   }
 
   .flow-number {
-    font-size: 28px;
+    font-size: clamp(24px, 7vw, 28px);
   }
 
   .flow-chips {
@@ -1738,12 +1850,12 @@ a {
 
   .technology-flow {
     gap: 4px;
-    font-size: 14px;
+    font-size: clamp(12px, 3.6vw, 14px);
   }
 
   .technology-flow strong {
     padding: 6px 8px;
-    font-size: 15px;
+    font-size: clamp(13px, 4vw, 15px);
   }
 
   .product-window {
@@ -1847,7 +1959,7 @@ a {
 
   .eyebrow {
     gap: 8px;
-    font-size: 10px;
+    font-size: var(--type-micro);
     letter-spacing: 0.11em;
   }
 
@@ -1857,16 +1969,16 @@ a {
 
   .technology-flow {
     gap: 3px;
-    font-size: 12px;
+    font-size: clamp(11px, 3.2vw, 12px);
   }
 
   .technology-flow strong {
     padding: 5px 7px;
-    font-size: 14px;
+    font-size: clamp(12px, 3.7vw, 14px);
   }
 
   .accessibility-toggle small {
-    font-size: 9px;
+    font-size: var(--type-micro);
   }
 
 }
@@ -1888,11 +2000,11 @@ a {
 }
 
 .card-index {
-  font-size: 18px;
+  font-size: clamp(15px, calc(13px + 0.6vw), 18px);
   font-weight: bold;
 }
 
 .safety-grid article > span {
-  font-size: 18px;
+  font-size: clamp(15px, calc(13px + 0.6vw), 18px);
   font-weight: bold;
 }
