@@ -1719,7 +1719,10 @@ p {
   .centered > p:last-child,
   .product-copy > p:not(.eyebrow),
   .accessibility-copy > p:not(.eyebrow) {
+    max-width: min(100%, 620px);
+    margin-inline: auto;
     font-size: clamp(14px, 3.8vw, 16px);
+    text-align: center;
   }
 
   .hero-copy,
