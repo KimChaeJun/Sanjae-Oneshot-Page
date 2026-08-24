@@ -1651,6 +1651,20 @@ p {
     font-size: clamp(15px, 4.1vw, 16px);
   }
 
+  .hero-copy > :not(.eyebrow) {
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-actions,
+  .hero-tags {
+    justify-content: center;
+  }
+
   .hero-actions,
   .button {
     width: 100%;
