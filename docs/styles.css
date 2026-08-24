@@ -568,15 +568,12 @@ a {
 .impact-value small {
   display: inline-flex;
   align-items: center;
-  padding: 4px 8px;
   color: var(--mint);
-  background: rgba(201, 215, 255, 0.1);
-  border: 1px solid rgba(201, 215, 255, 0.24);
-  border-radius: 999px;
   font-size: var(--type-caption);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1;
+  opacity: 0.82;
 }
 
 .impact-grid span {
@@ -1735,10 +1732,6 @@ p {
 
   .impact-value {
     gap: 6px;
-  }
-
-  .impact-value small {
-    padding: 3px 7px;
   }
 
   .impact-grid span {
