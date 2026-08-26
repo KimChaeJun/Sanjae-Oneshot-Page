@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="개인정보와 사건 개요 한 번 입력으로 기관 서류 요청부터 산재 신청서 작성까지 자동화하는 산재원샷 최종 청사진입니다." />
+    <meta name="theme-color" content="#073d30" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="산재원샷 최종 청사진" />
+    <meta property="og:description" content="서류를 찾아 올리는 신청에서, 필요한 서류가 먼저 찾아오는 신청으로." />
+    <meta property="og:image" content="https://kimchaejun.github.io/Sanjae-Oneshot-Page/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>최종 청사진 | 산재원샷</title>
+    <link rel="stylesheet" href="./blueprint.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="산재원샷 소개로 돌아가기">
+        <span class="brand-symbol" aria-hidden="true">산</span>
+        <span><b>산재원샷</b><small>FINAL BLUEPRINT</small></span>
+      </a>
+      <nav aria-label="청사진 메뉴">
+        <a href="#simulation">자동화 시연</a>
+        <a href="#change">달라지는 점</a>
+        <a href="#time">예상 시간</a>
+        <a class="back-link" href="./index.html">프로젝트 소개 ↗</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> SANJAE ONESHOT · NEXT</p>
+            <h1>서류를 찾아 올리는 신청에서,<br /><em>필요한 서류가 먼저 찾아오는 신청으로.</em></h1>
+            <p class="lead">개인정보와 사건 개요를 한 번만 입력하면 기관 API가 필요한 자료를 요청하고, 준비된 문서를 바탕으로 AI가 신청 서류를 완성합니다.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#simulation">자동화 흐름 재생</a>
+              <a class="button secondary" href="#change">현재 방식과 비교</a>
+            </div>
+            <ul class="promise-list">
+              <li><b>0회</b><span>사용자 직접<br />파일 업로드</span></li>
+              <li><b>1회</b><span>개인·사건 정보<br />입력</span></li>
+              <li><b>약 12분</b><span>사용자 직접<br />조작 시간</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-map" aria-label="정보 한 번 입력 후 기관 자료 요청과 신청서 생성으로 이어지는 흐름">
+            <div class="map-glow" aria-hidden="true"></div>
+            <div class="map-node map-input"><span>01</span><strong>한 번 입력</strong><small>개인정보 · 사건 개요</small></div>
+            <div class="map-line line-one" aria-hidden="true"></div>
+            <div class="map-node map-api"><span>02</span><strong>기관 API 요청</strong><small>필요 자료 자동 수집</small></div>
+            <div class="map-line line-two" aria-hidden="true"></div>
+            <div class="map-node map-result"><span>03</span><strong>신청서 완성</strong><small>AI 작성 · 사람 확인</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="simulation-section" id="simulation">
+        <div class="section-intro">
+          <div><p class="eyebrow light"><span></span> AUTOMATED DOCUMENT FLOW</p><h2>서류가 준비되는 동안,<br />산재원샷이 흐름을 이어갑니다.</h2></div>
+          <p>아래 화면은 실제 사업화 시 기관 연계가 이뤄졌을 때의 동작을 보여주는 시연입니다. 버튼을 눌러 처음부터 다시 볼 수 있습니다.</p>
+        </div>
+
+        <div class="simulation" data-simulation>
+          <div class="sim-toolbar">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>sanjae-oneshot.co.kr / 신청 자동화</span>
+            <div class="sim-actions">
+              <button type="button" data-toggle aria-pressed="false">일시정지</button>
+              <button type="button" data-restart>처음부터</button>
+            </div>
+          </div>
+
+          <div class="sim-body">
+            <aside class="sim-timeline" aria-label="자동화 진행 단계">
+              <ol>
+                <li data-step="0"><b>1</b><span><strong>정보 확인</strong><small>약 5분</small></span></li>
+                <li data-step="1"><b>2</b><span><strong>기관 요청</strong><small>자동 처리</small></span></li>
+                <li data-step="2"><b>3</b><span><strong>서류 준비</strong><small>기관별 대기</small></span></li>
+                <li data-step="3"><b>4</b><span><strong>AI 작성</strong><small>약 2분</small></span></li>
+                <li data-step="4"><b>5</b><span><strong>최종 확인</strong><small>약 5분</small></span></li>
+              </ol>
+            </aside>
+
+            <div class="sim-stage">
+              <div class="stage-heading">
+                <div><span data-stage-kicker>STEP 1 · 정보 확인</span><h3 data-stage-title>개인정보와 사건 개요를 확인합니다</h3></div>
+                <strong class="stage-time" data-stage-time>사용자 5분</strong>
+              </div>
+
+              <div class="request-map" aria-live="polite">
+                <div class="user-card">
+                  <span class="avatar">김</span>
+                  <div><strong>김민준 님의 신청</strong><small>업무상 사고 · 치료 중</small></div>
+                  <i data-user-status>입력 확인</i>
+                </div>
+
+                <div class="data-hub">
+                  <div class="hub-core"><b>산재<br />원샷</b><span class="pulse-ring" aria-hidden="true"></span></div>
+                  <div class="connector connector-a" aria-hidden="true"></div>
+                  <div class="connector connector-b" aria-hidden="true"></div>
+                  <div class="connector connector-c" aria-hidden="true"></div>
+                  <div class="connector connector-d" aria-hidden="true"></div>
+                </div>
+
+                <div class="agency-grid">
+                  <article data-agency="medical"><span>병</span><div><strong>의료기관</strong><small>진단·치료 사실</small></div><i>대기</i></article>
+                  <article data-agency="employer"><span>사</span><div><strong>사업장</strong><small>재직·업무 사실</small></div><i>대기</i></article>
+                  <article data-agency="public"><span>공</span><div><strong>공공기관</strong><small>보험·자격 정보</small></div><i>대기</i></article>
+                  <article data-agency="rescue"><span>구</span><div><strong>소방·교통</strong><small>이송·사고 기록</small></div><i>대기</i></article>
+                </div>
+              </div>
+
+              <div class="stage-message">
+                <span class="message-icon" data-message-icon>1</span>
+                <div><strong data-message-title>입력 내용이 준비되었습니다</strong><p data-message-body>이 정보는 필요한 기관과 서류를 판단하는 데만 사용합니다.</p></div>
+                <div class="mini-progress"><span data-progress></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="assumption-note">시연 가정: 기관별 API·전자문서 연계와 사용자 동의 기반 정보 제공이 가능하다는 전제로 구성했습니다. 실제 준비 기간은 기관과 서류 종류에 따라 달라집니다.</p>
+      </section>
+
+      <section class="change-section" id="change">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> WHAT CHANGES</p>
+          <h2>없애야 할 단계는 없애고,<br />사람이 확인할 순간은 남깁니다.</h2>
+        </div>
+        <div class="comparison">
+          <article class="comparison-before">
+            <header><span>CURRENT</span><h3>사용자가 서류를 모으는 흐름</h3></header>
+            <ol>
+              <li><b>1</b><span>기본·사고 정보 입력</span></li>
+              <li class="pain"><b>2</b><span>필요 서류를 직접 확인</span></li>
+              <li class="pain"><b>3</b><span>기관마다 발급 신청</span></li>
+              <li class="pain"><b>4</b><span>파일을 찾아 직접 업로드</span></li>
+              <li><b>5</b><span>OCR·AI 검토 후 최종 확인</span></li>
+            </ol>
+          </article>
+
+          <div class="comparison-arrow" aria-hidden="true"><span>→</span><small>자동화</small></div>
+
+          <article class="comparison-after">
+            <header><span>BLUEPRINT</span><h3>서류가 사용자를 찾아오는 흐름</h3></header>
+            <ol>
+              <li><b>1</b><span>개인정보·사건 개요 한 번 입력</span></li>
+              <li><b>2</b><span>기관 API 요청과 준비 알림</span></li>
+              <li><b>3</b><span>AI 신청서 자동 작성·사실 대조</span></li>
+              <li><b>4</b><span>사용자 최종 확인 후 제출</span></li>
+            </ol>
+            <p><strong>업로드 단계 제거</strong> · 중복 입력 제거 · 최종 판단은 사용자</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="time-section" id="time">
+        <div class="time-copy">
+          <p class="eyebrow light"><span></span> TIME MODEL</p>
+          <h2>“얼마나 걸리나요?”를<br />두 개의 시간으로 답합니다.</h2>
+          <p>사용자가 직접 조작하는 시간과 외부 기관의 서류 준비 시간을 분리해 안내합니다. 기다리는 시간을 숨기지 않되, 그동안 사용자가 반복해서 확인할 필요는 없게 설계합니다.</p>
+        </div>
+
+        <div class="time-model">
+          <div class="hands-on">
+            <span>사용자 직접 조작</span>
+            <strong>약 12<small>분</small></strong>
+            <div class="time-bars">
+              <i style="--size:42%"><b>5분</b><small>정보 확인</small></i>
+              <i style="--size:16%"><b>2분</b><small>AI 결과 확인</small></i>
+              <i style="--size:42%"><b>5분</b><small>최종 검토</small></i>
+            </div>
+          </div>
+          <div class="waiting">
+            <header><span>외부 서류 준비</span><strong>기관별 별도 안내</strong></header>
+            <div class="wait-track">
+              <i class="instant"><b>즉시</b><small>기본 자격·사업장 정보</small></i>
+              <i class="day-one"><b>당일~1일</b><small>전산 확인 가능 자료</small></i>
+              <i class="day-three"><b>1~3일+</b><small>의료·추가 확인 자료</small></i>
+            </div>
+            <p>위 기간은 발표용 설계 가정이며 실제 기관 처리기한이 아닙니다. 운영 전 기관별 SLA를 연동해 실시간 예상일로 교체합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles-section">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> DESIGN PRINCIPLES</p>
+          <h2>자동화되어도 바뀌지 않는 원칙</h2>
+        </div>
+        <div class="principles">
+          <article><span>01</span><h3>동의한 정보만 요청</h3><p>기관·문서·사용 목적을 먼저 보여주고 사용자가 허용한 범위만 요청합니다.</p></article>
+          <article><span>02</span><h3>사실만 자동 작성</h3><p>받은 문서와 입력값에 없는 날짜·수치·상황은 AI가 새로 만들지 않습니다.</p></article>
+          <article><span>03</span><h3>제출 전 사람의 확인</h3><p>자동 생성 결과는 초안이며, 마지막 사실 확인과 제출 결정은 신청인이 합니다.</p></article>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <span>FINAL BLUEPRINT</span>
+        <h2>산재 신청 준비의<br />기다림까지 연결합니다.</h2>
+        <a class="button light" href="./index.html">산재원샷 프로젝트 전체 보기 ↗</a>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="./index.html"><span class="brand-symbol" aria-hidden="true">산</span><span><b>산재원샷</b><small>INDUSTRIAL ACCIDENT ONE-SHOT</small></span></a><p>실제 기관 연계 전 단계의 사업화 시연 청사진입니다.</p></footer>
+    <script src="./blueprint.js" defer></script>
+  </body>
+</html>
